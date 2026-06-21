@@ -62,13 +62,21 @@ function renderResults(results) {
       note.className = 'site-note';
       note.textContent = site.error;
       body.appendChild(note);
-    } else if (!site.items || site.items.length === 0) {
-      const note = document.createElement('div');
-      note.className = 'site-note';
-      note.textContent = '指定の条件に合う掲載物件が見つかりませんでした。';
-      body.appendChild(note);
     } else {
-      body.appendChild(buildTable(site.items));
+      if (site.warning) {
+        const warn = document.createElement('div');
+        warn.className = 'site-note';
+        warn.textContent = site.warning;
+        body.appendChild(warn);
+      }
+      if (!site.items || site.items.length === 0) {
+        const note = document.createElement('div');
+        note.className = 'site-note';
+        note.textContent = '指定の条件に合う掲載物件が見つかりませんでした。';
+        body.appendChild(note);
+      } else {
+        body.appendChild(buildTable(site.items));
+      }
     }
 
     section.appendChild(body);
