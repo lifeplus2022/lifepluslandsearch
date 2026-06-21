@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>売り土地検索</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>🏞 売り土地検索</h1>
+    <p class="subtitle">SUUMO・アットホームを自動検索し、サイトごとに一覧表示します</p>
+  </header>
+
+  <form id="searchForm" class="search-form">
+    <div class="field">
+      <label for="prefecture">都道府県 <span class="required">必須</span></label>
+      <input type="text" id="prefecture" name="prefecture" placeholder="例：愛媛県" value="愛媛県">
+    </div>
+    <div class="field-group">
+      <div class="field">
+        <label for="city">郡市</label>
+        <input type="text" id="city" name="city" placeholder="例：松山市">
+      </div>
+      <div class="field">
+        <label for="town">町村</label>
+        <input type="text" id="town" name="town" placeholder="例：星岡">
+      </div>
+    </div>
+    <button type="submit" id="searchBtn">検索する</button>
+  </form>
+
+  <div id="status"></div>
+  <div id="results"></div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
